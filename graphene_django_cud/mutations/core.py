@@ -34,6 +34,8 @@ class DjangoCudBase(Mutation):
         else:
             input_type_meta = meta_registry.get_meta_for_type(field_type)
             # Create new obj
+            if value is None:
+                return
             related_obj = cls.create_obj(
                 value,
                 info,
